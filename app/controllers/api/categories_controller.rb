@@ -3,18 +3,19 @@ module Api
     def create
       cat = Category.new(cat_params)
       if cat.save
-        #TODO: Use Serializer or jbuilder
         render json: cat
       else
       end
     end
 
     def index
-      Category.all
+      cats = Category.all
+      render json: cats
     end
 
     def show
-      Category.find(params[:id])
+      cat = Category.find(params[:id])
+      render json: cat
     end
 
     private

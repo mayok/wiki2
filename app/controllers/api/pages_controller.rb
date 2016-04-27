@@ -1,11 +1,13 @@
 module Api
   class PagesController < ApplicationController
     def index
-      Page.all
+      pages = Page.all
+      render json: pages
     end
 
     def show
-      Page.find(params[:id])
+      page = Page.find(params[:id])
+      render json: page
     end
   end
 end
